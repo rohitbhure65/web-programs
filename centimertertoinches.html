@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Height Conversion</title>
+    <script>
+      function convertHeight() {
+        // Get user input
+        let conversionType = document.getElementById("conversionType").value;
+        let inputValue = parseFloat(
+          document.getElementById("heightInput").value
+        ); // Check if the input is a valid number
+        if (isNaN(inputValue)) {
+          alert("Please enter a valid number for height.");
+          return;
+        }
+        // Perform conversion
+        let result;
+        if (conversionType === "cmToInches") {
+          result = inputValue / 2.54; // 1 inch = 2.54 centimeters
+          alert(
+            inputValue +
+              " centimeters is approximately " +
+              result.toFixed(2) +
+              " inches."
+          );
+        } else if (conversionType === "inchesToCm") {
+          result = inputValue * 2.54; // 1 inch = 2.54 centimeters
+          alert(
+            inputValue +
+              " inches is approximately " +
+              result.toFixed(2) +
+              " centimeters."
+          );
+        } else {
+          alert("Invalid conversion type.");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Height Conversion</h2>
+    <label for="conversionType">Select Conversion Type:</label>
+    <select id="conversionType">
+      <option value="cmToInches">Centimeters to Inches</option>
+      <option value="inchesToCm">Inches to Centimeters</option> </select
+    >
+    <br />
+    <label for="heightInput">Enter Height:</label>
+    <input type="text" id="heightInput" placeholder="Enter height value" />
+    <br />
+    <button onclick="convertHeight()">Convert</button>
+  </body>
+</html>

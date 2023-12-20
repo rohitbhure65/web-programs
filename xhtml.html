@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="mydiv"></div>
+    <div id="mynewdiv"></div>
+    <p id="myp"></p>
+
+    <script>
+      // 1. Accessing Elements:
+      // accessing an element by ID
+      let myelement = document.getElementById("myid");
+
+      // accessing an element by class name
+      let elementbyclass = document.getElementsByClassName("myclass");
+
+      // accessing an element by tag name
+      let elementbytag = document.getElementsByTagName("p");
+
+      // using queryselector to select elements with a css selector
+      let elementwithselector = document.querySelector("#myid .myclass");
+
+      // 2. manipulating content:
+      let myDiv = document.getElementById("mydiv");
+      let myP = document.getElementById("myp");
+      myDiv.innerHTML =
+        "<p>this content manipulating by get element by id and innerhtml</p>";
+      myP.textContent = "hello";
+
+      // 3. Modifying Attributes:
+      let myimage = document.getElementById("myimage");
+      let currentsrc = myimage.getAttribute("src"); // get current source
+      myimage.setAttribute("src", "newimage.jpg"); // set new source
+      myimage.removeAttribute("alt");
+
+      // 4. Creating Elements:
+      let newparagraph = document.createElement("p");
+      newparagraph.textContent = "this is a new paragraph";
+      let parentElement = document.getElementById("mynewdiv");
+      parentElement.appendChild(newparagraph);
+
+      // 5. Event Handling
+      let myButton = document.getElementById("mybutton")
+      myButton.addEventListener("click", function(){
+        alert("Button Clicked!")
+      })
+    </script>
+  </body>
+</html>
